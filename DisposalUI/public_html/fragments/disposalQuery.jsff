@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="center">
+      <af:panelGroupLayout layout="vertical" id="pgl1">
+        <af:panelHeader text="Search Page" id="ph1">
+          <af:query id="qryId1" headerText="Search" disclosed="true"
+                    value="#{bindings.DssDisposalNoteHeaderViewCriteriaQuery.queryDescriptor}"
+                    model="#{bindings.DssDisposalNoteHeaderViewCriteriaQuery.queryModel}"
+                    queryListener="#{bindings.DssDisposalNoteHeaderViewCriteriaQuery.processQuery}"
+                    queryOperationListener="#{bindings.DssDisposalNoteHeaderViewCriteriaQuery.processQueryOperation}"
+                    resultComponentId="::pc1:resId1" saveQueryMode="hidden" modeChangeVisible="false"/>
+        </af:panelHeader>
+        <af:panelCollection id="pc1" styleClass="AFStretchWidth" featuresOff="detach viewMenu">
+          <f:facet name="menus"/>
+          <f:facet name="toolbar">
+            <af:toolbar id="t1">
+              <af:group id="g1">
+                <af:button text="Create New" id="b1" action="goCreate"/>
+              </af:group>
+            </af:toolbar>
+          </f:facet>
+          <f:facet name="statusbar"/>
+          <af:table value="#{bindings.DssDisposalNoteHeaderView1.collectionModel}" var="row"
+                    rows="#{bindings.DssDisposalNoteHeaderView1.rangeSize}"
+                    emptyText="#{bindings.DssDisposalNoteHeaderView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0"
+                    selectedRowKeys="#{bindings.DssDisposalNoteHeaderView1.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.DssDisposalNoteHeaderView1.collectionModel.makeCurrent}"
+                    rowSelection="single" fetchSize="#{bindings.DssDisposalNoteHeaderView1.rangeSize}" id="resId1">
+            <af:column headerText="#{bindings.DssDisposalNoteHeaderView1.hints.DisposalNoteHdrIdPk.label}" id="c8"
+                       rendered="false">
+              <af:inputText value="#{row.bindings.DisposalNoteHdrIdPk.inputValue}"
+                            label="#{bindings.DssDisposalNoteHeaderView1.hints.DisposalNoteHdrIdPk.label}"
+                            required="#{bindings.DssDisposalNoteHeaderView1.hints.DisposalNoteHdrIdPk.mandatory}"
+                            columns="#{bindings.DssDisposalNoteHeaderView1.hints.DisposalNoteHdrIdPk.displayWidth}"
+                            maximumLength="#{bindings.DssDisposalNoteHeaderView1.hints.DisposalNoteHdrIdPk.precision}"
+                            shortDesc="#{bindings.DssDisposalNoteHeaderView1.hints.DisposalNoteHdrIdPk.tooltip}"
+                            id="it1">
+                <f:validator binding="#{row.bindings.DisposalNoteHdrIdPk.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.DssDisposalNoteHeaderView1.hints.DisposalNoteHdrIdPk.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.DssDisposalNoteHeaderView1.hints.DisposalNoteDocNo.label}" id="c6"
+                       width="200" align="center">
+              <af:outputText value="#{row.DisposalNoteDocNo}"
+                             shortDesc="#{bindings.DssDisposalNoteHeaderView1.hints.DisposalNoteDocNo.tooltip}"
+                             id="ot7"/>
+            </af:column>
+            <af:column headerText="#{bindings.DssDisposalNoteHeaderView1.hints.VAgentCode.label}" id="c4"
+                       align="center">
+              <af:outputText value="#{row.VAgentCode}"
+                             shortDesc="#{bindings.DssDisposalNoteHeaderView1.hints.VAgentCode.tooltip}" id="ot5"/>
+            </af:column>
+            <af:column headerText="#{bindings.DssDisposalNoteHeaderView1.hints.AgentName.label}" id="c5" align="center">
+              <af:outputText value="#{row.AgentName}"
+                             shortDesc="#{bindings.DssDisposalNoteHeaderView1.hints.AgentName.tooltip}" id="ot6"/>
+            </af:column>
+            <af:column headerText="#{bindings.DssDisposalNoteHeaderView1.hints.RecommendedBy.label}" id="resId1c1"
+                       align="center">
+              <af:outputText value="#{row.RecommendedBy}"
+                             shortDesc="#{bindings.DssDisposalNoteHeaderView1.hints.RecommendedBy.tooltip}" id="ot1"/>
+            </af:column>
+            <af:column headerText="#{bindings.DssDisposalNoteHeaderView1.hints.SoldToContNo.label}" id="resId1c2"
+                       align="center">
+              <af:outputText value="#{row.SoldToContNo}"
+                             shortDesc="#{bindings.DssDisposalNoteHeaderView1.hints.SoldToContNo.tooltip}" id="ot2"/>
+            </af:column>
+            <af:column headerText="#{bindings.DssDisposalNoteHeaderView1.hints.WorkflowStatus.label}" id="c9"
+                       align="center">
+              <af:outputText value="#{row.WorkflowStatus}"
+                             shortDesc="#{bindings.DssDisposalNoteHeaderView1.hints.WorkflowStatus.tooltip}" id="ot3"/>
+            </af:column>
+            <af:column id="c1" align="center" headerText="Detail" width="50">
+              <af:link id="l1" icon="/images/detailsicon_enabled.gif" action="goDetail"/>
+            </af:column>
+            <af:column id="c2" align="center" headerText="Update" width="50">
+              <af:link id="l2" icon="/images/updateicon_enabled.gif" action="goUpdate"
+                       disabled="#{row.WorkflowStatus eq 'APPROVED' or row.WorkflowStatus eq 'INPROCESS'}"/>
+            </af:column>
+            <af:column id="c3" align="center" headerText="Delete" width="50">
+              <af:link id="l3" icon="/images/deleteicon_enabled.gif" action="goDelete"
+                       disabled="#{row.WorkflowStatus eq 'APPROVED' or row.WorkflowStatus eq 'INPROCESS'}"/>
+            </af:column>
+            <af:column id="c7" align="center" headerText="Report" width="50">
+              <af:link id="l4" icon="/images/printLogo.gif"
+                       actionListener="#{CallReport.callDSSReports('DSS_DISPOSAL_NOTE', (row.bindings.DisposalNoteHdrIdPk.inputValue))}"/>
+            </af:column>
+            <af:column headerText="#{bindings.DssDisposalNoteHeaderView1.hints.DisposalNoteHdrIdPk.label}" id="c10"
+                       rendered="false">
+              <af:inputText value="#{row.bindings.DisposalNoteHdrIdPk.inputValue}"
+                            label="#{bindings.DssDisposalNoteHeaderView1.hints.DisposalNoteHdrIdPk.label}"
+                            required="#{bindings.DssDisposalNoteHeaderView1.hints.DisposalNoteHdrIdPk.mandatory}"
+                            columns="#{bindings.DssDisposalNoteHeaderView1.hints.DisposalNoteHdrIdPk.displayWidth}"
+                            maximumLength="#{bindings.DssDisposalNoteHeaderView1.hints.DisposalNoteHdrIdPk.precision}"
+                            shortDesc="#{bindings.DssDisposalNoteHeaderView1.hints.DisposalNoteHdrIdPk.tooltip}"
+                            id="it2">
+                <f:validator binding="#{row.bindings.DisposalNoteHdrIdPk.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.DssDisposalNoteHeaderView1.hints.DisposalNoteHdrIdPk.format}"/>
+              </af:inputText>
+            </af:column>
+          </af:table>
+        </af:panelCollection>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:panelStretchLayout>
+</ui:composition>

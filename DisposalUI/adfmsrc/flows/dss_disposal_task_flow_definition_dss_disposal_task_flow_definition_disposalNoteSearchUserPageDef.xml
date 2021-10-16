@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31"
+                id="dss_disposal_task_flow_definition_dss_disposal_task_flow_definition_disposalNoteSearchUserPageDef"
+                Package="flows" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="disposalNoteSearchUser" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="disposalNoteSearchUser" IsViewObjectMethod="true" DataControl="DisposalAMDataControl"
+                  InstanceName="data.DisposalAMDataControl.DssDisposalNoteHeaderView1"/>
+  </bindings>
+</pageDefinition>

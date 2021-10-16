@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31"
+                id="dss_disposal_task_flow_definition_dss_disposal_task_flow_definition_RollbackPageDef"
+                Package="flows" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="DisposalAMDataControl"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="disposalNoteNotificationPageDef"
+                Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DssDisposalNoteView1" RangeSize="25" DataControl="DisposalAMDataControl"
+              id="DssDisposalNoteView1Iterator"/>
+    <iterator Binds="DssDisposalNoteHeaderView1" RangeSize="25" DataControl="DisposalAMDataControl"
+              id="DssDisposalNoteHeaderView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DssDisposalNoteView1Iterator" id="DssDisposalNoteView1">
+      <nodeDefinition DefName="pqt.dss.disposal.model.vo.DssDisposalNoteView" Name="DssDisposalNoteView10">
+        <AttrNames>
+          <Item Value="AssetDescription"/>
+          <Item Value="ReferenceNo"/>
+          <Item Value="Location"/>
+          <Item Value="ConditionCode"/>
+          <Item Value="ReasonDisposal"/>
+          <Item Value="MethodOfDisposal"/>
+          <Item Value="AgeOfAsset"/>
+          <Item Value="DisposalDate"/>
+          <Item Value="BranchStatus"/>
+          <Item Value="DssStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <listOfValues IterBinding="DssDisposalNoteHeaderView1Iterator" StaticList="false" Uses="LOV_VAgentCode"
+                  id="VAgentCode"/>
+    <attributeValues IterBinding="DssDisposalNoteHeaderView1Iterator" id="AgentName">
+      <AttrNames>
+        <Item Value="AgentName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssDisposalNoteHeaderView1Iterator" id="RecommendedBy">
+      <AttrNames>
+        <Item Value="RecommendedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssDisposalNoteHeaderView1Iterator" id="SoldToContNo">
+      <AttrNames>
+        <Item Value="SoldToContNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssDisposalNoteHeaderView1Iterator" id="DisposalNoteDocNo">
+      <AttrNames>
+        <Item Value="DisposalNoteDocNo"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="DssDisposalNoteHeaderView1Iterator" StaticList="false" Uses="LOV_BranchName"
+                  id="BranchName"/>
+  </bindings>
+</pageDefinition>

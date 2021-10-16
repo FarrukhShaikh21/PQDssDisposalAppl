@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="disposalDetailPageDef"
+                Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DssDisposalNoteView1" RangeSize="25" DataControl="DisposalAMDataControl"
+              id="DssDisposalNoteView1Iterator"/>
+    <iterator Binds="DssDisposalNoteHeaderView1" RangeSize="25" DataControl="DisposalAMDataControl"
+              id="DssDisposalNoteHeaderView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DssDisposalNoteView1Iterator" id="DssDisposalNoteView1">
+      <nodeDefinition DefName="pqt.dss.disposal.model.vo.DssDisposalNoteView" Name="DssDisposalNoteView10">
+        <AttrNames>
+          <Item Value="AssetDescription"/>
+          <Item Value="ReferenceNo"/>
+          <Item Value="Location"/>
+          <Item Value="ConditionCode"/>
+          <Item Value="ReasonDisposal"/>
+          <Item Value="MethodOfDisposal"/>
+          <Item Value="AgeOfAsset"/>
+          <Item Value="DisposalDate"/>
+          <Item Value="RecommendedBy"/>
+          <Item Value="BranchStatus"/>
+          <Item Value="DssStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="DssDisposalNoteView1Iterator" id="ConditionCode">
+      <AttrNames>
+        <Item Value="ConditionCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssDisposalNoteView1Iterator" id="DisposalNoteIdPk">
+      <AttrNames>
+        <Item Value="DisposalNoteIdPk"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="callWorkflow" RequiresUpdateModel="true" Action="invokeMethod" MethodName="callWorkflow"
+                  IsViewObjectMethod="false" DataControl="DisposalAMDataControl"
+                  InstanceName="data.DisposalAMDataControl.dataProvider">
+      <NamedData NDName="p_document_id" NDType="oracle.jbo.domain.Number"/>
+      <NamedData NDName="ApprovalType" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="DssApprove" RequiresUpdateModel="true" Action="invokeMethod" MethodName="DssApprove"
+                  IsViewObjectMethod="false" DataControl="DisposalAMDataControl"
+                  InstanceName="data.DisposalAMDataControl.dataProvider"/>
+    <methodAction id="callWorkflow1" RequiresUpdateModel="true" Action="invokeMethod" MethodName="callWorkflow"
+                  IsViewObjectMethod="false" DataControl="DisposalAMDataControl"
+                  InstanceName="data.DisposalAMDataControl.dataProvider">
+      <NamedData NDName="p_document_id" NDType="oracle.jbo.domain.Number"/>
+      <NamedData NDName="ApprovalType" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="DssDisposalNoteView1Iterator" id="AssetDescription">
+      <AttrNames>
+        <Item Value="AssetDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssDisposalNoteView1Iterator" id="ReferenceNo">
+      <AttrNames>
+        <Item Value="ReferenceNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssDisposalNoteView1Iterator" id="Location">
+      <AttrNames>
+        <Item Value="Location"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssDisposalNoteView1Iterator" id="MethodOfDisposal">
+      <AttrNames>
+        <Item Value="MethodOfDisposal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssDisposalNoteView1Iterator" id="ReasonDisposal">
+      <AttrNames>
+        <Item Value="ReasonDisposal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssDisposalNoteView1Iterator" id="AgeOfAsset">
+      <AttrNames>
+        <Item Value="AgeOfAsset"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssDisposalNoteView1Iterator" id="DisposalDate">
+      <AttrNames>
+        <Item Value="DisposalDate"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="DssDisposalNoteHeaderView1Iterator" StaticList="false" Uses="LOV_VAgentCode"
+                  id="VAgentCode"/>
+    <attributeValues IterBinding="DssDisposalNoteHeaderView1Iterator" id="AgentName">
+      <AttrNames>
+        <Item Value="AgentName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssDisposalNoteHeaderView1Iterator" id="SoldToContNo">
+      <AttrNames>
+        <Item Value="SoldToContNo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssDisposalNoteHeaderView1Iterator" id="RecommendedBy">
+      <AttrNames>
+        <Item Value="RecommendedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssDisposalNoteHeaderView1Iterator" id="DisposalNoteDocNo">
+      <AttrNames>
+        <Item Value="DisposalNoteDocNo"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="DssDisposalNoteHeaderView1Iterator" StaticList="false" Uses="LOV_BranchName"
+                  id="BranchName"/>
+    <methodAction id="callDisposalWorkflow" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="callDisposalWorkflow" IsViewObjectMethod="false" DataControl="DisposalAMDataControl"
+                  InstanceName="data.DisposalAMDataControl.dataProvider">
+      <NamedData NDName="p_document_id" NDType="oracle.jbo.domain.Number"/>
+    </methodAction>
+    <attributeValues IterBinding="DssDisposalNoteHeaderView1Iterator" id="WorkflowStatus">
+      <AttrNames>
+        <Item Value="WorkflowStatus"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

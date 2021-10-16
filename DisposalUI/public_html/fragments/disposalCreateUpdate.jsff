@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="center">
+      <af:panelGroupLayout id="pgl1" layout="vertical">
+        <af:panelHeader text="Create / Update Page" id="ph1" inlineStyle="height:25px;">
+          <f:facet name="toolbar">
+            <af:button text="Back to Search" id="b3" action="backQuery" immediate="true"/>
+            <af:button text="Save Record" disabled="#{!bindings.Apply.enabled}" id="b2" partialSubmit="false"
+                       action="#{createUpdateBean.b2_action}"/>
+          </f:facet>
+        </af:panelHeader>
+        <af:panelLabelAndMessage label="#{bindings.DisposalNoteDocNo.hints.label}" id="plam1"
+                                 labelStyle="font-weight:bolder;" inlineStyle="font-weight:bolder;">
+          <af:outputText value="#{bindings.DisposalNoteDocNo.inputValue}"
+                         shortDesc="#{bindings.DisposalNoteDocNo.hints.tooltip}" id="ot1"/>
+        </af:panelLabelAndMessage>
+        <af:panelFormLayout id="pfl1" rows="3">
+          <af:inputListOfValues id="branchNameId" popupTitle="Search and Select: #{bindings.BranchName.hints.label}"
+                                value="#{bindings.BranchName.inputValue}" label="#{bindings.BranchName.hints.label}"
+                                model="#{bindings.BranchName.listOfValuesModel}"
+                                required="#{bindings.BranchName.hints.mandatory}"
+                                columns="#{bindings.BranchName.hints.displayWidth}"
+                                shortDesc="#{bindings.BranchName.hints.tooltip}"
+                                disabled="#{bindings.VAgentCode.inputValue != null}" partialTriggers="vAgentCodeId"
+                                labelStyle="font-weight:bolder;">
+            <f:validator binding="#{bindings.BranchName.validator}"/>
+          </af:inputListOfValues>
+          <af:inputListOfValues id="vAgentCodeId" popupTitle="Search and Select: #{bindings.VAgentCode.hints.label}"
+                                value="#{bindings.VAgentCode.inputValue}" label="#{bindings.VAgentCode.hints.label}"
+                                model="#{bindings.VAgentCode.listOfValuesModel}"
+                                required="#{bindings.VAgentCode.hints.mandatory}"
+                                columns="#{bindings.VAgentCode.hints.displayWidth}"
+                                shortDesc="#{bindings.VAgentCode.hints.tooltip}" labelStyle="font-weight:bolder;">
+            <f:validator binding="#{bindings.VAgentCode.validator}"/>
+          </af:inputListOfValues>
+          <af:inputText value="#{bindings.AgentName.inputValue}" label="#{bindings.AgentName.hints.label}"
+                        required="#{bindings.AgentName.hints.mandatory}"
+                        columns="#{bindings.AgentName.hints.displayWidth}"
+                        maximumLength="#{bindings.AgentName.hints.precision}"
+                        shortDesc="#{bindings.AgentName.hints.tooltip}" partialTriggers="vAgentCodeId" id="it4"
+                        labelStyle="font-weight:bolder;" readOnly="true">
+            <f:validator binding="#{bindings.AgentName.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.RecommendedBy.inputValue}" label="#{bindings.RecommendedBy.hints.label}"
+                        required="#{bindings.RecommendedBy.hints.mandatory}"
+                        columns="#{bindings.RecommendedBy.hints.displayWidth}"
+                        maximumLength="#{bindings.RecommendedBy.hints.precision}"
+                        shortDesc="#{bindings.RecommendedBy.hints.tooltip}" id="it5">
+            <f:validator binding="#{bindings.RecommendedBy.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.SoldToContNo.inputValue}" label="#{bindings.SoldToContNo.hints.label}"
+                        required="#{bindings.SoldToContNo.hints.mandatory}"
+                        columns="#{bindings.SoldToContNo.hints.displayWidth}"
+                        maximumLength="#{bindings.SoldToContNo.hints.precision}"
+                        shortDesc="#{bindings.SoldToContNo.hints.tooltip}" id="it6">
+            <f:validator binding="#{bindings.SoldToContNo.validator}"/>
+          </af:inputText>
+        </af:panelFormLayout>
+        <af:separator id="s1"/>
+        <af:separator id="s2"/>
+        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+          <af:table value="#{bindings.DssDisposalNoteView1.collectionModel}" var="row"
+                    rows="#{bindings.DssDisposalNoteView1.rangeSize}"
+                    emptyText="#{bindings.DssDisposalNoteView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0"
+                    selectedRowKeys="#{bindings.DssDisposalNoteView1.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.DssDisposalNoteView1.collectionModel.makeCurrent}"
+                    rowSelection="single" fetchSize="#{bindings.DssDisposalNoteView1.rangeSize}" id="t1"
+                    partialTriggers="::b1 l1">
+            <af:column headerText="#{bindings.DssDisposalNoteView1.hints.AssetDescription.label}" id="c1" width="130">
+              <af:inputText value="#{row.bindings.AssetDescription.inputValue}"
+                            label="#{bindings.DssDisposalNoteView1.hints.AssetDescription.label}"
+                            required="#{bindings.DssDisposalNoteView1.hints.AssetDescription.mandatory}"
+                            columns="#{bindings.DssDisposalNoteView1.hints.AssetDescription.displayWidth}"
+                            maximumLength="#{bindings.DssDisposalNoteView1.hints.AssetDescription.precision}"
+                            shortDesc="#{bindings.DssDisposalNoteView1.hints.AssetDescription.tooltip}" id="it1">
+                <f:validator binding="#{row.bindings.AssetDescription.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.DssDisposalNoteView1.hints.ReferenceNo.label}" id="c2" width="120">
+              <af:inputText value="#{row.bindings.ReferenceNo.inputValue}"
+                            label="#{bindings.DssDisposalNoteView1.hints.ReferenceNo.label}"
+                            required="#{bindings.DssDisposalNoteView1.hints.ReferenceNo.mandatory}"
+                            columns="#{bindings.DssDisposalNoteView1.hints.ReferenceNo.displayWidth}"
+                            maximumLength="#{bindings.DssDisposalNoteView1.hints.ReferenceNo.precision}"
+                            shortDesc="#{bindings.DssDisposalNoteView1.hints.ReferenceNo.tooltip}" id="it2">
+                <f:validator binding="#{row.bindings.ReferenceNo.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.DssDisposalNoteView1.hints.Location.label}" id="c3" width="130">
+              <af:inputText value="#{row.bindings.Location.inputValue}"
+                            label="#{bindings.DssDisposalNoteView1.hints.Location.label}"
+                            required="#{bindings.DssDisposalNoteView1.hints.Location.mandatory}"
+                            columns="#{bindings.DssDisposalNoteView1.hints.Location.displayWidth}"
+                            maximumLength="#{bindings.DssDisposalNoteView1.hints.Location.precision}"
+                            shortDesc="#{bindings.DssDisposalNoteView1.hints.Location.tooltip}" id="it3">
+                <f:validator binding="#{row.bindings.Location.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.DssDisposalNoteView1.hints.ConditionCode.label}" id="c4" width="130">
+              <af:selectOneChoice value="#{row.bindings.ConditionCode.inputValue}"
+                                  label="#{row.bindings.ConditionCode.label}"
+                                  required="#{bindings.DssDisposalNoteView1.hints.ConditionCode.mandatory}"
+                                  shortDesc="#{bindings.DssDisposalNoteView1.hints.ConditionCode.tooltip}" id="soc1">
+                <f:selectItems value="#{row.bindings.ConditionCode.items}" id="si1"/>
+                <f:validator binding="#{row.bindings.ConditionCode.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column headerText="#{bindings.DssDisposalNoteView1.hints.ReasonDisposal.label}" id="c5" width="130">
+              <af:selectOneChoice value="#{row.bindings.ReasonDisposal.inputValue}"
+                                  label="#{row.bindings.ReasonDisposal.label}"
+                                  required="#{bindings.DssDisposalNoteView1.hints.ReasonDisposal.mandatory}"
+                                  shortDesc="#{bindings.DssDisposalNoteView1.hints.ReasonDisposal.tooltip}" id="soc2">
+                <f:selectItems value="#{row.bindings.ReasonDisposal.items}" id="si2"/>
+                <f:validator binding="#{row.bindings.ReasonDisposal.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column headerText="#{bindings.DssDisposalNoteView1.hints.MethodOfDisposal.label}" id="c6" width="130">
+              <af:selectOneChoice value="#{row.bindings.MethodOfDisposal.inputValue}"
+                                  label="#{row.bindings.MethodOfDisposal.label}"
+                                  required="#{bindings.DssDisposalNoteView1.hints.MethodOfDisposal.mandatory}"
+                                  shortDesc="#{bindings.DssDisposalNoteView1.hints.MethodOfDisposal.tooltip}" id="soc3">
+                <f:selectItems value="#{row.bindings.MethodOfDisposal.items}" id="si3"/>
+                <f:validator binding="#{row.bindings.MethodOfDisposal.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column headerText="#{bindings.DssDisposalNoteView1.hints.AgeOfAsset.label}" id="c7" width="120">
+              <af:inputDate value="#{row.bindings.AgeOfAsset.inputValue}"
+                            label="#{bindings.DssDisposalNoteView1.hints.AgeOfAsset.label}"
+                            required="#{bindings.DssDisposalNoteView1.hints.AgeOfAsset.mandatory}"
+                            columns="#{bindings.DssDisposalNoteView1.hints.AgeOfAsset.displayWidth}"
+                            shortDesc="#{bindings.DssDisposalNoteView1.hints.AgeOfAsset.tooltip}" id="id1">
+                <f:validator binding="#{row.bindings.AgeOfAsset.validator}"/>
+                <af:convertDateTime pattern="#{bindings.DssDisposalNoteView1.hints.AgeOfAsset.format}"/>
+              </af:inputDate>
+            </af:column>
+            <af:column headerText="#{bindings.DssDisposalNoteView1.hints.DisposalDate.label}" id="c8" width="120">
+              <af:inputDate value="#{row.bindings.DisposalDate.inputValue}"
+                            label="#{bindings.DssDisposalNoteView1.hints.DisposalDate.label}"
+                            required="#{bindings.DssDisposalNoteView1.hints.DisposalDate.mandatory}"
+                            columns="#{bindings.DssDisposalNoteView1.hints.DisposalDate.displayWidth}"
+                            shortDesc="#{bindings.DssDisposalNoteView1.hints.DisposalDate.tooltip}" id="id2">
+                <f:validator binding="#{row.bindings.DisposalDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.DssDisposalNoteView1.hints.DisposalDate.format}"/>
+              </af:inputDate>
+            </af:column>
+            <af:column id="c9" align="center" headerText="Delete">
+              <af:link id="l1" icon="/images/deleteicon_enabled.gif" actionListener="#{bindings.Delete.execute}"
+                       immediate="true"/>
+            </af:column>
+          </af:table>
+          <f:facet name="toolbar">
+            <af:toolbar id="t2">
+              <af:group id="g1">
+                <af:button text="Add New" id="b1" actionListener="#{bindings.CreateInsert.execute}"/>
+              </af:group>
+            </af:toolbar>
+          </f:facet>
+        </af:panelCollection>
+        <f:facet name="separator"/>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:panelStretchLayout>
+</ui:composition>

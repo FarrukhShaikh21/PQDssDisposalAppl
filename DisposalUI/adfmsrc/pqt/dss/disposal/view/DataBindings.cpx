@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.0.31" id="DataBindings"
+             SeparateXMLFiles="false" Package="pqt.dss.disposal.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/WEB-INF/flows/dss-disposal-task-flow-definition.xml#dss-disposal-task-flow-definition@Rollback"
+          usageId="pqt_dss_disposal_view_dss_disposal_task_flow_definition_dss_disposal_task_flow_definition_RollbackPageDef"/>
+    <page path="/WEB-INF/flows/dss-disposal-task-flow-definition.xml#dss-disposal-task-flow-definition@CreateInsert"
+          usageId="pqt_dss_disposal_view_dss_disposal_task_flow_definition_dss_disposal_task_flow_definition_CreateInsertPageDef"/>
+    <page path="/fragments/disposalQuery.jsff" usageId="pqt_dss_disposal_view_disposalQueryPageDef"/>
+    <page path="/fragments/disposalCreateUpdate.jsff" usageId="pqt_dss_disposal_view_disposalCreateUpdatePageDef"/>
+    <page path="/fragments/disposalDetail.jsff" usageId="pqt_dss_disposal_view_disposalDetailPageDef"/>
+    <page path="/pages/DisposalPage.jsf" usageId="pqt_dss_disposal_view_DisposalPagePageDef"/>
+    <page path="/WEB-INF/flows/dss-disposal-task-flow-definition.xml#dss-disposal-task-flow-definition@DeleteRecord"
+          usageId="pqt_dss_disposal_view_dss_disposal_task_flow_definition_dss_disposal_task_flow_definition_DeleteRecordPageDef"/>
+    <page path="/WEB-INF/flows/dss-disposal-task-flow-definition.xml#dss-disposal-task-flow-definition@Delete"
+          usageId="pqt_dss_disposal_view_dss_disposal_task_flow_definition_dss_disposal_task_flow_definition_DeletePageDef"/>
+    <page path="/WEB-INF/flows/disposal-notification-task-flow-definition.xml#disposal-notification-task-flow-definition@setNVC_wfDocumentId"
+          usageId="pqt_dss_disposal_view_disposal_notification_task_flow_definition_disposal_notification_task_flow_definition_setNVC_wfDocumentIdPageDef"/>
+    <page path="/fragments/disposalNoteNotification.jsff"
+          usageId="pqt_dss_disposal_view_disposalNoteNotificationPageDef"/>
+    <page path="/pages/disposalNotification.jsf" usageId="pqt_dss_disposal_view_disposalNotificationPageDef"/>
+    <page path="/WEB-INF/flows/dss-disposal-task-flow-definition.xml#dss-disposal-task-flow-definition@disposalNoteSearchUser"
+          usageId="pqt_dss_disposal_view_dss_disposal_task_flow_definition_dss_disposal_task_flow_definition_disposalNoteSearchUserPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="pqt_dss_disposal_view_dss_disposal_task_flow_definition_dss_disposal_task_flow_definition_RollbackPageDef"
+          path="flows.dss_disposal_task_flow_definition_dss_disposal_task_flow_definition_RollbackPageDef"/>
+    <page id="pqt_dss_disposal_view_dss_disposal_task_flow_definition_dss_disposal_task_flow_definition_CreateInsertPageDef"
+          path="flows.dss_disposal_task_flow_definition_dss_disposal_task_flow_definition_CreateInsertPageDef"/>
+    <page id="pqt_dss_disposal_view_disposalQueryPageDef" path="fragments.disposalQueryPageDef"/>
+    <page id="pqt_dss_disposal_view_disposalCreateUpdatePageDef" path="fragments.disposalCreateUpdatePageDef"/>
+    <page id="pqt_dss_disposal_view_disposalDetailPageDef" path="fragments.disposalDetailPageDef"/>
+    <page id="pqt_dss_disposal_view_DisposalPagePageDef" path="pages.DisposalPagePageDef"/>
+    <page id="pqt_dss_disposal_view_dss_disposal_task_flow_definition_dss_disposal_task_flow_definition_DeleteRecordPageDef"
+          path="flows.dss_disposal_task_flow_definition_dss_disposal_task_flow_definition_DeleteRecordPageDef"/>
+    <page id="pqt_dss_disposal_view_dss_disposal_task_flow_definition_dss_disposal_task_flow_definition_DeletePageDef"
+          path="flows.dss_disposal_task_flow_definition_dss_disposal_task_flow_definition_DeletePageDef"/>
+    <page id="pqt_dss_disposal_view_disposal_notification_task_flow_definition_disposal_notification_task_flow_definition_setNVC_wfDocumentIdPageDef"
+          path="flows.disposal_notification_task_flow_definition_disposal_notification_task_flow_definition_setNVC_wfDocumentIdPageDef"/>
+    <page id="pqt_dss_disposal_view_disposalNoteNotificationPageDef" path="fragments.disposalNoteNotificationPageDef"/>
+    <page id="pqt_dss_disposal_view_disposalNotificationPageDef" path="pages.disposalNotificationPageDef"/>
+    <page id="pqt_dss_disposal_view_dss_disposal_task_flow_definition_dss_disposal_task_flow_definition_disposalNoteSearchUserPageDef"
+          path="flows.dss_disposal_task_flow_definition_dss_disposal_task_flow_definition_disposalNoteSearchUserPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="DisposalAMDataControl" Package="pqt.dss.disposal.model.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="DisposalAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

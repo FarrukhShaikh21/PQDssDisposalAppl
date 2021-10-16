@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31"
+                id="dss_disposal_task_flow_definition_dss_disposal_task_flow_definition_DeleteRecordPageDef"
+                Package="flows" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="DeleteRecord" RequiresUpdateModel="true" Action="invokeMethod" MethodName="DeleteRecord"
+                  IsViewObjectMethod="false" DataControl="DisposalAMDataControl"
+                  InstanceName="data.DisposalAMDataControl.dataProvider"
+                  ReturnName="data.DisposalAMDataControl.methodResults.DeleteRecord_DisposalAMDataControl_dataProvider_DeleteRecord_result"/>
+  </bindings>
+</pageDefinition>

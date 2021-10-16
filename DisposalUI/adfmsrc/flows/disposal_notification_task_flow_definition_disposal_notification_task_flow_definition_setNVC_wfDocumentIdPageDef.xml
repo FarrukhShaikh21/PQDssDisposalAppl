@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31"
+                id="disposal_notification_task_flow_definition_disposal_notification_task_flow_definition_setNVC_wfDocumentIdPageDef"
+                Package="flows" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="setNVC_wfDocumentId" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="setNVC_wfDocumentId" IsViewObjectMethod="true" DataControl="DisposalAMDataControl"
+                  InstanceName="data.DisposalAMDataControl.DssDisposalNoteHeaderView1">
+      <NamedData NDName="value"
+                 NDValue="#{pageFlowScope.NVC_wfDocumentId == null ? 123 : pageFlowScope.NVC_wfDocumentId}"
+                 NDType="oracle.jbo.domain.Number"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DssDisposalNote"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="DSS_DISPOSAL_NOTE"
+  AliasName="DssDisposalNote"
+  BindingStyle="OracleName"
+  RowClass="pqt.dss.disposal.model.eo.DssDisposalNoteImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="DisposalNoteIdPk"
+    IsNotNull="true"
+    ColumnName="DISPOSAL_NOTE_ID_PK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_DISPOSAL_NOTE"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="AgentNoFk"
+    ColumnName="AGENT_NO_FK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_DISPOSAL_NOTE"/>
+  <Attribute
+    Name="AssetDescription"
+    Precision="500"
+    ColumnName="ASSET_DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DSS_DISPOSAL_NOTE"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.disposal.model.eo.DssDisposalNote.AssetDescription_LABEL"/>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ReferenceNo"
+    Precision="100"
+    ColumnName="REFERENCE_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DSS_DISPOSAL_NOTE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Location"
+    Precision="500"
+    ColumnName="LOCATION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DSS_DISPOSAL_NOTE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ConditionCode"
+    Precision="25"
+    ColumnName="CONDITION_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DSS_DISPOSAL_NOTE"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ReasonDisposal"
+    Precision="25"
+    ColumnName="REASON_DISPOSAL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DSS_DISPOSAL_NOTE"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MethodOfDisposal"
+    Precision="25"
+    ColumnName="METHOD_OF_DISPOSAL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DSS_DISPOSAL_NOTE"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AgeOfAsset"
+    ColumnName="AGE_OF_ASSET"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="DSS_DISPOSAL_NOTE"/>
+  <Attribute
+    Name="DisposalDate"
+    ColumnName="DISPOSAL_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="DSS_DISPOSAL_NOTE"/>
+  <Attribute
+    Name="RecommendedBy"
+    Precision="100"
+    ColumnName="RECOMMENDED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DSS_DISPOSAL_NOTE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SoldToContNo"
+    Precision="50"
+    ColumnName="SOLD_TO_CONT_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DSS_DISPOSAL_NOTE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UserIdFk"
+    ColumnName="USER_ID_FK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_DISPOSAL_NOTE"/>
+  <Attribute
+    Name="EnterDate"
+    ColumnName="ENTER_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="DSS_DISPOSAL_NOTE"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_DISPOSAL_NOTE"/>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="DSS_DISPOSAL_NOTE"/>
+  <Attribute
+    Name="BranchStatus"
+    Precision="50"
+    ColumnName="BRANCH_STATUS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DSS_DISPOSAL_NOTE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DssStatus"
+    Precision="50"
+    ColumnName="DSS_STATUS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DSS_DISPOSAL_NOTE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BranchNotifIdFk"
+    ColumnName="BRANCH_NOTIF_ID_FK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_DISPOSAL_NOTE"/>
+  <Attribute
+    Name="DssNotifIdFk"
+    ColumnName="DSS_NOTIF_ID_FK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_DISPOSAL_NOTE"/>
+  <Attribute
+    Name="DisposalNoteHdrIdFk"
+    ColumnName="DISPOSAL_NOTE_HDR_ID_FK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_DISPOSAL_NOTE"/>
+  <AccessorAttribute
+    Name="DssDisposalNoteHeader"
+    Association="pqt.dss.disposal.model.eo.DisposalNoteHdrFkAssoc"
+    AssociationEnd="pqt.dss.disposal.model.eo.DisposalNoteHdrFkAssoc.DssDisposalNoteHeader"
+    AssociationOtherEnd="pqt.dss.disposal.model.eo.DisposalNoteHdrFkAssoc.DssDisposalNote"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="DisposalNotePk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="DISPOSAL_NOTE_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="pqt.dss.disposal.model.eo.DssDisposalNote.DisposalNoteIdPk"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="DssDisposalNoteAssetDescriptionCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"ASSET_DESCRIPTION" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="DSS_DISPOSAL_NOTE_ASSET_DESCRI"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="pqt.dss.disposal.model.eo.DssDisposalNote.AssetDescription"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="DssDisposalNoteConditionCodeCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"CONDITION_CODE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="DSS_DISPOSAL_NOTE_CONDITION_CO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="pqt.dss.disposal.model.eo.DssDisposalNote.ConditionCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="DssDisposalNoteMethodOfDisposalCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"METHOD_OF_DISPOSAL" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="DSS_DISPOSAL_NOTE_METHOD_OF_DI"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="pqt.dss.disposal.model.eo.DssDisposalNote.MethodOfDisposal"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="DssDisposalNoteReasonDisposalCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"REASON_DISPOSAL" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="DSS_DISPOSAL_NOTE_REASON_DISPO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="pqt.dss.disposal.model.eo.DssDisposalNote.ReasonDisposal"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="DisposalNoteHdrFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="DISPOSAL_NOTE_HDR_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="DISPOSAL_NOTE_HDR_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="pqt.dss.disposal.model.eo.DssDisposalNote.DisposalNoteHdrIdFk"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="pqt.dss.disposal.model.DisposalModelBundle"/>
+  </ResourceBundle>
+</Entity>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DssDisposalNoteHdrFkLink"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge"
+  EntityAssociation="pqt.dss.disposal.model.eo.DisposalNoteHdrFkAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="pqt.dss.disposal.model.vo.DssDisposalNoteHdrFkLink_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="DssDisposalNoteHeaderView"
+    Cardinality="1"
+    Source="true"
+    Owner="pqt.dss.disposal.model.vo.DssDisposalNoteHeaderView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="DssDisposalNoteHeaderView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="pqt.dss.disposal.model.vo.DssDisposalNoteHeaderView.DisposalNoteHdrIdPk"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="DssDisposalNoteView"
+    Cardinality="-1"
+    Owner="pqt.dss.disposal.model.vo.DssDisposalNoteView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="DssDisposalNoteView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="pqt.dss.disposal.model.DisposalModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="pqt.dss.disposal.model.am.DisposalAM">
+      <AppModuleConfig jbo.project="pqt.dss.disposal.model.DisposalModel" ApplicationName="pqt.dss.disposal.model.am.DisposalAM" DeployPlatform="LOCAL" name="DisposalAMLocal">
+         <AM-Pooling jbo.ampool.minavailablesize="0" jbo.ampool.maxpoolsize="450" jbo.ampool.maxinactiveage="420000" jbo.ampool.maxavailablesize="100" jbo.recyclethreshold="300" jbo.ampool.initpoolsize="22" jbo.ampool.monitorsleepinterval="240000"/>
+         <Database jbo.TypeMapEntries="OracleApps"/>
+         <Security AppModuleJndiName="pqt.dss.disposal.model.am.DisposalAM"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/DSSConnDS" ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="DisposalAMShared" jbo.project="pqt.dss.disposal.model.DisposalModel" ApplicationName="pqt.dss.disposal.model.am.DisposalAM" DeployPlatform="LOCAL" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory">
+         <AM-Pooling jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1"/>
+         <Database jbo.locking.mode="optimistic" jbo.TypeMapEntries="OracleApps"/>
+         <Security AppModuleJndiName="pqt.dss.disposal.model.am.DisposalAM"/>
+         <Custom ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" ns0:JDBCDataSource="java:comp/env/jdbc/DSSConnDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

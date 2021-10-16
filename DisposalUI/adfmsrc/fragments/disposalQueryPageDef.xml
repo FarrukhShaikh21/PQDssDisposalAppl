@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="disposalQueryPageDef"
+                Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DssDisposalNoteHeaderView1" RangeSize="25" DataControl="DisposalAMDataControl"
+              id="DssDisposalNoteHeaderView1Iterator"/>
+    <searchRegion Criteria="DssDisposalNoteHeaderViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="DssDisposalNoteHeaderView1Iterator" id="DssDisposalNoteHeaderViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DssDisposalNoteHeaderView1Iterator" id="DssDisposalNoteHeaderView1">
+      <nodeDefinition DefName="pqt.dss.disposal.model.vo.DssDisposalNoteHeaderView" Name="DssDisposalNoteHeaderView10">
+        <AttrNames>
+          <Item Value="DisposalNoteHdrIdPk"/>
+          <Item Value="DisposalNoteDocNo"/>
+          <Item Value="VAgentCode"/>
+          <Item Value="AgentName"/>
+          <Item Value="RecommendedBy"/>
+          <Item Value="SoldToContNo"/>
+          <Item Value="WorkflowStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
