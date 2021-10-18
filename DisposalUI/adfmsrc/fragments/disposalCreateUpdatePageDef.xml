@@ -58,5 +58,7 @@
             DataControl="DisposalAMDataControl"/>
     <listOfValues IterBinding="DssDisposalNoteHeaderView1Iterator" StaticList="false" Uses="LOV_BranchName"
                   id="BranchName"/>
+    <list IterBinding="DssDisposalNoteHeaderView1Iterator" StaticList="false" Uses="LOV_GisLocationIdFk"
+          id="GisLocationIdFk" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

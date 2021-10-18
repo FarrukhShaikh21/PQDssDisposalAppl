@@ -10,6 +10,20 @@
             <af:button text="Save Record" disabled="#{!bindings.Apply.enabled}" id="b2" partialSubmit="false"
                        action="#{createUpdateBean.b2_action}"/>
           </f:facet>
+          <f:facet name="context">
+            <af:panelGroupLayout id="pgl2" layout="horizontal">
+              <af:outputText value="(" id="ot2"/>
+              <af:selectOneChoice value="#{bindings.GisLocationIdFk.inputValue}"
+                                  label="#{bindings.GisLocationIdFk.label}"
+                                  required="#{bindings.GisLocationIdFk.hints.mandatory}"
+                                  shortDesc="#{bindings.GisLocationIdFk.hints.tooltip}" id="soc4" simple="true"
+                                  contentStyle="font-weight:bold" readOnly="true">
+                <f:selectItems value="#{bindings.GisLocationIdFk.items}" id="si4"/>
+                <f:validator binding="#{bindings.GisLocationIdFk.validator}"/>
+              </af:selectOneChoice>
+              <af:outputText value=")" id="ot3"/>
+            </af:panelGroupLayout>
+          </f:facet>
         </af:panelHeader>
         <af:panelLabelAndMessage label="#{bindings.DisposalNoteDocNo.hints.label}" id="plam1"
                                  labelStyle="font-weight:bolder;" inlineStyle="font-weight:bolder;">

@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="DssDisposalNoteHeaderView"
-  Version="12.2.1.0.31"
+  Version="12.2.1.11.57"
   InheritPersonalization="merge"
   BindingStyle="OracleName"
   CustomQuery="true"
@@ -62,6 +62,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccLocationLov"
+    ViewObjectName="pqt.dss.disposal.model.lov.LocationLov"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_VAgentCode"
     ListVOName="agentDetailLovVO1"
@@ -113,31 +117,51 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT DssDisposalNoteHeader.DISPOSAL_NOTE_HDR_ID_PK,  
-       DssDisposalNoteHeader.AGENT_NO_FK,  
-       DssDisposalNoteHeader.USER_ID_FK,  
-       DssDisposalNoteHeader.ENTER_DATE,  
-       DssDisposalNoteHeader.LAST_UPDATED_BY,  
-       DssDisposalNoteHeader.LAST_UPDATED_DATE,  
-       DssDisposalNoteHeader.BRANCH_STATUS,  
-       DssDisposalNoteHeader.DSS_STATUS,  
-       DssDisposalNoteHeader.BRANCH_NOTIF_ID_FK,  
-       DssDisposalNoteHeader.DSS_NOTIF_ID_FK,  
-       DssDisposalNoteHeader.RECOMMENDED_BY,  
-       DssDisposalNoteHeader.SOLD_TO_CONT_NO,  
-       DssDisposalNoteHeader.Disposal_Note_Doc_No,  
-       DssDisposalNoteHeader.Branch_Code_Fk,  
-       (SELECT Ag.V_AGENT_CODE  
-          FROM VU_DSS_ALL_AGENT_DETAIL AG  
-         WHERE Ag.N_AGENT_NO = DssDisposalNoteHeader.Agent_No_Fk) V_AGENT_CODE,  
-       (SELECT Ag.AGENT_NAME  
-          FROM VU_DSS_ALL_AGENT_DETAIL AG  
-         WHERE Ag.N_AGENT_NO = DssDisposalNoteHeader.Agent_No_Fk) AGENT_NAME,  
-         (SELECT FBR.V_BRANCH_NAME                       
-          FROM VU_DSS_ST_BRANCH FBR                       
-         WHERE FBR.V_BRANCH_CODE = DssDisposalNoteHeader.Branch_Code_Fk) BRANCH_NAME, 
-         DssDisposalNoteHeader.Workflow_Status, 
-       DssDisposalNoteHeader.Workflow_Notification_Id 
+  <ListBinding
+    Name="LOV_GisLocationIdFk"
+    ListVOName="AccLocationLov"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="GisLocationIdFk"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IlLocIdPk"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Location"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT DssDisposalNoteHeader.DISPOSAL_NOTE_HDR_ID_PK,    
+       DssDisposalNoteHeader.AGENT_NO_FK,    
+       DssDisposalNoteHeader.USER_ID_FK,    
+       DssDisposalNoteHeader.ENTER_DATE,    
+       DssDisposalNoteHeader.LAST_UPDATED_BY,    
+       DssDisposalNoteHeader.LAST_UPDATED_DATE,    
+       DssDisposalNoteHeader.BRANCH_STATUS,    
+       DssDisposalNoteHeader.DSS_STATUS,    
+       DssDisposalNoteHeader.BRANCH_NOTIF_ID_FK,    
+       DssDisposalNoteHeader.DSS_NOTIF_ID_FK,    
+       DssDisposalNoteHeader.RECOMMENDED_BY,    
+       DssDisposalNoteHeader.SOLD_TO_CONT_NO,    
+       DssDisposalNoteHeader.Disposal_Note_Doc_No,    
+       DssDisposalNoteHeader.Branch_Code_Fk,    
+       (SELECT Ag.V_AGENT_CODE    
+          FROM VU_DSS_ALL_AGENT_DETAIL AG    
+         WHERE Ag.N_AGENT_NO = DssDisposalNoteHeader.Agent_No_Fk) V_AGENT_CODE,    
+       (SELECT Ag.AGENT_NAME    
+          FROM VU_DSS_ALL_AGENT_DETAIL AG    
+         WHERE Ag.N_AGENT_NO = DssDisposalNoteHeader.Agent_No_Fk) AGENT_NAME,    
+         (SELECT FBR.V_BRANCH_NAME                         
+          FROM VU_DSS_ST_BRANCH FBR                         
+         WHERE FBR.V_BRANCH_CODE = DssDisposalNoteHeader.Branch_Code_Fk) BRANCH_NAME,   
+         DssDisposalNoteHeader.Workflow_Status,   
+       DssDisposalNoteHeader.Workflow_Notification_Id ,  
+       DssDisposalNoteHeader.GIS_LOCATION_ID_FK  
   FROM DSS_DISPOSAL_NOTE_HEADER DssDisposalNoteHeader]]></SQLQuery>
   <EntityUsage
     Name="DssDisposalNoteHeader"
@@ -345,6 +369,20 @@
     EntityAttrName="WorkflowNotificationId"
     EntityUsage="DssDisposalNoteHeader"
     AliasName="WORKFLOW_NOTIFICATION_ID"/>
+  <ViewAttribute
+    Name="GisLocationIdFk"
+    PrecisionRule="true"
+    EntityAttrName="GisLocationIdFk"
+    EntityUsage="DssDisposalNoteHeader"
+    AliasName="GIS_LOCATION_ID_FK"
+    LOVName="LOV_GisLocationIdFk">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="DssDisposalNoteHeaderViewCriteria"
     ViewObjectName="pqt.dss.disposal.model.vo.DssDisposalNoteHeaderView"
