@@ -106,11 +106,16 @@ public class DssDisposalNoteHeaderViewImpl extends ViewObjectImpl implements Dss
               ExternalContext ectx = fctx.getExternalContext();
               HttpSession userSession = (HttpSession) ectx.getSession(false);
               Object VUserID = userSession.getAttribute("pUserId") == null ? "0" : userSession.getAttribute("pUserId");
-              setWhereClause("exists\n" + 
+              setWhereClause("(exists\n" + 
               " (select 1 \n" + 
-              "          from dss_sm_user_branch a\n" + 
-              "         where a.user_id_fk = "+ VUserID+"\n" + 
-              "           and a.branch_code = BRANCH_CODE_FK)");
+              " from DSS_SM_USERS a\n" + 
+              " where a.user_id_pk = "+ VUserID+"\n" + 
+              " and a.GIS_LOCATION_ID_FK = QRSLT.GIS_LOCATION_ID_FK ) OR '"+userSession.getAttribute("SSV_UserType")+"'!= 'BO'"+") ");                
+//              setWhereClause("exists\n" + 
+//              " (select 1 \n" + 
+//              "          from dss_sm_user_branch a\n" + 
+//              "         where a.user_id_fk = "+ VUserID+"\n" + 
+//              "           and a.branch_code = BRANCH_CODE_FK)");
     //              setWhereClause("USER_ID_FK =" + VUserID);
               executeQuery();
           }

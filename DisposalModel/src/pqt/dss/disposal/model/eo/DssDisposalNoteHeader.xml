@@ -4,7 +4,7 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="DssDisposalNoteHeader"
-  Version="12.2.1.0.31"
+  Version="12.2.1.11.57"
   InheritPersonalization="merge"
   DBObjectType="table"
   DBObjectName="DSS_DISPOSAL_NOTE_HEADER"
@@ -181,6 +181,13 @@
       <Attr Name="_DisplaySize" Value="50"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="GisLocationIdFk"
+    ColumnName="GIS_LOCATION_ID_FK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_DISPOSAL_NOTE_HEADER"/>
   <AccessorAttribute
     Name="DssDisposalNote"
     Association="pqt.dss.disposal.model.eo.DisposalNoteHdrFkAssoc"
