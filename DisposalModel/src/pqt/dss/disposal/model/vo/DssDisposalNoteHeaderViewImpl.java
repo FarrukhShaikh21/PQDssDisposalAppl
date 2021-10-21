@@ -105,13 +105,18 @@ public class DssDisposalNoteHeaderViewImpl extends ViewObjectImpl implements Dss
               FacesContext fctx = FacesContext.getCurrentInstance();
               ExternalContext ectx = fctx.getExternalContext();
               HttpSession userSession = (HttpSession) ectx.getSession(false);
+//              userSession.setAttribute("SSV_UserType","AGENT");
+//              userSession.setAttribute("SSV_UserDept", 3);
+//              userSession.setAttribute("pUserId",1139);
               Object VUserID = userSession.getAttribute("pUserId") == null ? "0" : userSession.getAttribute("pUserId");
-              setWhereClause("(exists\n" + 
-              " (select 1 \n" + 
-              " from DSS_SM_USERS a\n" + 
-              " where a.user_id_pk = "+ VUserID+"\n" + 
-              " and a.GIS_LOCATION_ID_FK = QRSLT.GIS_LOCATION_ID_FK ) OR '"+userSession.getAttribute("SSV_UserType")+"'!= 'BO'"+") ");                
-//              setWhereClause("exists\n" + 
+         
+              if (userSession.getAttribute("SSV_UserType").equals("BO")) {
+                  setWhereClause("((exists (select 1 FROM DSS_SM_USERS AA, PQT_IL_LOC_BRANCH_DTL BD " + " WHERE 1=1" +
+                                 " AND AA.USER_ID_PK  =" + VUserID +
+                                 " AND AA.GIS_LOCATION_ID_FK = BD.IL_LOC_ID_FK " +
+                                 " AND BD.BRANCH_CODE = QRSLT.BRANCH_CODE_FK)))");
+              }
+              //              setWhereClause("exists\n" + 
 //              " (select 1 \n" + 
 //              "          from dss_sm_user_branch a\n" + 
 //              "         where a.user_id_fk = "+ VUserID+"\n" + 
